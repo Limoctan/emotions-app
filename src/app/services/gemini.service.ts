@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GoogleGenAI } from "@google/genai";
 import { ActiveEmotions } from '../components/emotion-wheel/emotion-wheel.component';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
