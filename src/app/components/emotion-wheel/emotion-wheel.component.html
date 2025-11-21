@@ -1,0 +1,74 @@
+<div class="emotion-wheel-container">
+  <div class="center-border"></div>
+  <!-- Happy (Top Left) -->
+  <div class="emotion-corner top-left" [class.active]="activeEmotions().happy">
+    <div class="face happy">
+      <svg viewBox="0 0 100 100" class="icon">
+        <circle cx="50" cy="50" r="45" fill="currentColor" />
+        <circle cx="35" cy="40" r="5" fill="#000" />
+        <circle cx="65" cy="40" r="5" fill="#000" />
+        <path d="M 30 60 Q 50 80 70 60" stroke="#000" stroke-width="5" fill="none" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Angry (Top Right) -->
+  <div class="emotion-corner top-right" [class.active]="activeEmotions().angry">
+    <div class="face angry">
+      <svg viewBox="0 0 100 100" class="icon">
+        <circle cx="50" cy="50" r="45" fill="currentColor" />
+        <path d="M 25 35 L 45 45" stroke="#000" stroke-width="5" />
+        <path d="M 75 35 L 55 45" stroke="#000" stroke-width="5" />
+        <circle cx="35" cy="50" r="5" fill="#000" />
+        <circle cx="65" cy="50" r="5" fill="#000" />
+        <path d="M 30 75 Q 50 65 70 75" stroke="#000" stroke-width="5" fill="none" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Sad (Bottom Left) -->
+  <div class="emotion-corner bottom-left" [class.active]="activeEmotions().sad">
+    <div class="face sad">
+      <svg viewBox="0 0 100 100" class="icon">
+        <circle cx="50" cy="50" r="45" fill="currentColor" />
+        <circle cx="35" cy="45" r="5" fill="#000" />
+        <circle cx="65" cy="45" r="5" fill="#000" />
+        <path d="M 30 75 Q 50 55 70 75" stroke="#000" stroke-width="5" fill="none" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Surprised (Bottom Right) -->
+  <div class="emotion-corner bottom-right" [class.active]="activeEmotions().surprised">
+    <div class="face surprised">
+      <svg viewBox="0 0 100 100" class="icon">
+        <circle cx="50" cy="50" r="45" fill="currentColor" />
+        <circle cx="35" cy="40" r="5" fill="#000" />
+        <circle cx="65" cy="40" r="5" fill="#000" />
+        <ellipse cx="50" cy="70" rx="10" ry="15" fill="#000" />
+      </svg>
+    </div>
+  </div>
+
+
+  <div class="upload-container">
+    @if (isAnalyzing()) {
+    <div class="analyzing-text">Analyzing...</div>
+    } @else {
+    <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+    <button class="upload-btn" (click)="fileInput.click()">
+      Upload Image
+    </button>
+
+    }
+  </div>
+  <div class="img-container">
+    @if (imageSrc()) {
+    <img [src]="imageSrc()" alt="Uploaded Image" class="uploaded-image">
+    }
+  </div>
+
+  <div class="center-text">
+    <div class="center-label">{{ centerText() }}</div>
+  </div>
+</div>
