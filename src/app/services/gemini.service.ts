@@ -11,7 +11,7 @@ export class GeminiService {
 
   constructor() {
     // Initialize Gemini with the API key
-    this.genAI = new GoogleGenAI({ apiKey: environment.GeminiApiKey });
+    this.genAI = new GoogleGenAI({ apiKey: environment.geminiApiKey });
   }
 
   async analyzeImage(imageFile: File): Promise<ActiveEmotions> {
