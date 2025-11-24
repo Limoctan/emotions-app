@@ -44,4 +44,4 @@ Thumbs.db
 
 # Environment Variables
 .env
-src/environments
+/src/environments
